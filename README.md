@@ -1,3 +1,3 @@
-# Grand Theft Auto VI Coming May 26, 2025
+# Grand Theft Auto VI Coming May 26, 2026
 
-<img src="media/gtavi.avif">
+<img src="media/gtavi.png">
