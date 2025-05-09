@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Grand Theft Auto VI</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: black;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Century Gothic', sans-serif;
+      color: #ff00c8;
+      font-size: 5rem;
+      letter-spacing: 0.1em;
+      text-shadow: 0 0 10px #ff00c8, 0 0 20px #ff00c8, 0 0 40px #00fff0;
+    }
+  </style>
+</head>
+<body>
+  <div id="countdown">00:00:00:00</div>
+
+  <script>
+    function updateCountdown() {
+      const targetDate = new Date("May 26, 2026 00:00:00 GMT-0400"); // ET is GMT-4 during May (EDT)
+      const now = new Date();
+      const diff = targetDate - now;
+
+      if (diff <= 0) {
+        document.getElementById("countdown").textContent = "00:00:00:00";
+        return;
+      }
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((diff / (1000 * 60)) % 60);
+      const seconds = Math.floor((diff / 1000) % 60);
+
+      const format = (num) => String(num).padStart(2, '0');
+      document.getElementById("countdown").textContent =
+        `${format(days)}:${format(hours)}:${format(minutes)}:${format(seconds)}`;
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  </script>
+</body>
+</html>
